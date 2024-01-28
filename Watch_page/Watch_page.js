@@ -1,14 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useWindowDimensions } from 'react-native';
-import Card from './Card.js';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default function Home_page() {
+
+export default function Watch_page() {
 
   return (
     <View style={styles.container}>
-        <Text>Watch_page</Text>
+        <Image source={require('../assets/Pictures/Arrow.png')} style={styles.Arrow} />
+        <Image source={require('../assets/Pictures/Big_apple_watch.png')} style={styles.Watch_picture} />
+        <View style={styles.description_container}>
+            <View style={styles.row}>
+                <View style={styles.title_subtitle}>
+                    <Text style={styles.title}>Apple Watch Series 7</Text>
+                    <Text style={styles.subtitle}>(With solo loop)</Text>
+                </View>
+                <Text style={styles.price}>$799</Text>
+            </View>
+            <Text style={styles.description}>The aluminium case is lightweight and made from 100 percent recycled aerospace grade alloy.</Text>
+        </View>
     </View>
   );
 }
@@ -16,12 +25,64 @@ export default function Home_page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
+    width : '100%',
+    backgroundColor: '#FCFCFF',
+    alignItems: 'center',
     justifyContent: 'flex-start',
     fontFamily: 'r_semibold',
-    gap: 20,
-    paddingTop : '25%',
-    paddingHorizontal : '10%',
+    paddingTop : '15%',
+    gap : 10,
+  },
+  Arrow : {
+    width : 25,
+    height : 25,
+    position : 'absolute',
+    top : '10%',
+    left : '10%',
+  },
+  Watch_picture : {
+    width : 311,
+    height : 311,
+    justifyContent : 'center',
+    alignItems : 'center',
+  },
+  white_background : {
+    width : '100%',
+    height : '100%',
+    backgroundColor : '#FFFFFF',
+  },
+  description_container : {
+    width : '90%',
+    height : '100%',
+  },
+  row : {
+    flexDirection : 'row',
+    justifyContent : 'space-between',
+
+  },
+  title_subtitle : {
+    flexDirection : 'column',
+  },
+  title : {
+    fontFamily: 'r_bold',
+    fontSize: 20,
+    paddingVertical : '2%',
+    color : '#1B153D',
+  },
+  subtitle : {
+    fontFamily: 'regular',
+    fontSize: 12,
+    color : '#9095A6',
+  },
+  price : {
+    fontFamily: 'poppins',
+    fontSize: 24,
+    color : '#5B41FF',
+  },
+  description : {
+    fontFamily: 'regular',
+    fontSize: 14,
+    color : '#9095A6',
+    paddingVertical : '5%',
   },
 });
