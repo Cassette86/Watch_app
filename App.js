@@ -1,10 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import { useCallback } from 'react';
+import Home_page from './Home_page/Home_page.js';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    regular: require('./assets/Fonts/Raleway-Regular.ttf'),
+    r_bold: require('./assets/Fonts/Raleway-Bold.ttf'),
+    r_semibold: require('./assets/Fonts/Raleway-SemiBold.ttf'),
+    poppins: require('./assets/Fonts/Poppins-Medium.ttf'),
+  });
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Home_page />
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +31,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FCFCFF',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    fontFamily: 'r_semibold',
+  },
+  title: {
+    fontFamily: 'r_semibold',
+    fontSize: 20,
   },
 });
