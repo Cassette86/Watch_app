@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 export default function Watch_page() {
@@ -17,6 +18,9 @@ export default function Watch_page() {
                 <Text style={styles.price}>$799</Text>
             </View>
             <Text style={styles.description}>The aluminium case is lightweight and made from 100 percent recycled aerospace grade alloy.</Text>
+            <View style={styles.add_to_card}>
+                <Text style={styles.add_to_card_police}>Add to card</Text>
+            </View>
         </View>
     </View>
   );
@@ -53,12 +57,11 @@ const styles = StyleSheet.create({
   },
   description_container : {
     width : '90%',
-    height : '100%',
   },
+
   row : {
     flexDirection : 'row',
     justifyContent : 'space-between',
-
   },
   title_subtitle : {
     flexDirection : 'column',
@@ -84,5 +87,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color : '#9095A6',
     paddingVertical : '5%',
+    paddingBottom : '55%',
+  },
+  add_to_card : {
+    width : '100%',
+    height : 70,
+    backgroundColor : '#8743FF',
+    borderRadius : 10,
+    justifyContent : 'center',
+    alignItems : 'center',
+  },
+  add_to_card_police : {
+    color : '#FFFFFF',
+    fontFamily: 'r_bold',
+    fontSize: 20,
   },
 });
