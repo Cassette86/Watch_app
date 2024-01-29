@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image,TouchableOpacity } from 'react-native';
 
-export default function Card({Title, Subtitle, Price, Color}) {
+export default function Card({Title, Subtitle, Price, Color, onPress}) {
     const AddImage = () => {
         let source;
     
@@ -21,14 +21,16 @@ export default function Card({Title, Subtitle, Price, Color}) {
     return (
       <View style={styles.container}>
         <View style={styles.frame_card}>
+          <TouchableOpacity onPress={onPress}>
             <View style={styles.Card_content}>
-                <View style={[styles.frame_color,{backgroundColor:Color}]}>
-                    <AddImage />
-                </View>
-                <Text style={styles.Title_card}>{Title}</Text>
-                <Text style={styles.Subtitle_card}>{Subtitle}</Text>
-                <Text style={styles.price}>{Price}</Text>
+              <View style={[styles.frame_color,{backgroundColor:Color}]}>
+                <AddImage />
+              </View>
+              <Text style={styles.Title_card}>{Title}</Text>
+              <Text style={styles.Subtitle_card}>{Subtitle}</Text>
+              <Text style={styles.price}>{Price}</Text>
             </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
