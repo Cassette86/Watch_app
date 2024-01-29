@@ -4,6 +4,10 @@ import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
 import Home_page from './Home_page/Home_page.js';
 import Watch_page from './Watch_page/Watch_page.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,10 +26,14 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Watch_page />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" options={{ headerShown: false }}>
+          {({ navigation }) => <Home_page navigation={navigation} title="homepage" />}
+        </Stack.Screen>
+        <Stack.Screen name="WatchPage" component={Watch_page} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -36,9 +44,5 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     fontFamily: 'r_semibold',
-  },
-  title: {
-    fontFamily: 'r_semibold',
-    fontSize: 20,
   },
 });
