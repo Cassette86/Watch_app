@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
 import Home_page from './Home_page/Home_page.js';
 import Watch_page from './Watch_page/Watch_page.js';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,10 +23,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Watch_page />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <Home_page />
+        <StatusBar style="auto" />
+      </View>
+    </NavigationContainer>
   );
 }
 

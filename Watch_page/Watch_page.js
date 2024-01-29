@@ -3,7 +3,23 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export default function Watch_page() {
+export default function Watch_page(Title, Subtitle, Price, Description) {
+    const AddImage = () => {
+        let source;
+    
+        if (Title === 'Apple Watch Series 7') {
+          source = require('../assets/Pictures/Big_apple_watch.png');
+        } else if (Title === 'Galaxy Watch Series 4') {
+          source = require('../assets/Pictures/Big_galaxy.png');
+        } else if (Title === 'Mi Watch All Series') {
+          source = require('../assets/Pictures/Big_Mi.png');
+        } else if (Title === 'Amazfit Bip U Pro Series') {
+          source = require('../assets/Pictures/Big_Amazon.png');
+        }
+    
+        return <Image source={source} />;
+      };
+
 
   return (
     <View style={styles.container}>
@@ -87,7 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color : '#9095A6',
     paddingVertical : '5%',
-    paddingBottom : '55%',
+    paddingBottom : '50%',
   },
   add_to_card : {
     width : '100%',
