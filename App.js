@@ -28,26 +28,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Home_page"
-          options={{
-            headerShown: false,
-          }}
-        >
-          {(props) => (
-            <Home_page {...props} title="homepage" navigation={props.navigation} />
-          )}
+        <Stack.Screen name="Home" options={{ headerShown: false }}>
+          {(props) => (<Home_page {...props} title="homepage" navigation={props.navigation}/>)}
         </Stack.Screen>
-        <Stack.Screen
-          name="WatchPage"
-              options={{ headerShown: false }}>
-            {(props) => (
-            <WatchPage {...props} title={props.route.params.title} price ={props.route.params.price} imageSource={props.route.params.imageSource} />
-          )}
-        </Stack.Screen>
+        <Stack.Screen name="WatchPage" component={Watch_page} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 
