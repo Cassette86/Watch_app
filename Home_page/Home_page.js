@@ -18,15 +18,15 @@ export default function Home_page({navigation}) {
                   onPress={() => CardPress('Apple Watch Series 7','$799')}/>
                   <View style={{paddingLeft : '55%'}}>
                       <Card Title='Galaxy Watch' Subtitle='Active 2' Price='$599' Color={'#FFEFE1'}
-                      onPress={() => CardPress('Galaxy Watch Series 4','$799')}/>
+                      onPress={() => CardPress('Galaxy Watch Series 4','$599')}/>
                   </View>
               </View>
               <View style={styles.row}>
-                  <Card Title='Mi Watch' Subtitle='Revolve Active' Price='$79' Color={'#F0DEC5'}
-                  onPress={() => CardPress('Mi Watch All Series','$799')}/>
+                  <Card Title='Mi Watch' Subtitle='Revolve Active' Price='$299' Color={'#F0DEC5'}
+                  onPress={() => CardPress('Mi Watch All Series','$299')}/>
                   <View style={{paddingLeft : '55%'}}>
                   <Card Title='Amazfit Bip U' Subtitle='Pro' Price='$199' Color={'#FCF1F0'}
-                  onPress={() => CardPress('Amazfit Bip U Pro Series','$799')}/>
+                  onPress={() => CardPress('Amazfit Bip U Pro Series','$199')}/>
                   </View>
               </View>
             </View>

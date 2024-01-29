@@ -38,7 +38,7 @@ export default function Watch_page({Title, Price}) {
                     <Text style={styles.title}>{Title}</Text>
                     <Text style={styles.subtitle}>(With solo loop)</Text>
                 </View>
-                <Text style={styles.price}>$799</Text>
+                <Text style={styles.price}>{Price}</Text>
             </View>
             <Text style={styles.description}>The aluminium case is lightweight and made from 100 percent recycled aerospace grade alloy.</Text>
             <View style={styles.add_to_card}>
