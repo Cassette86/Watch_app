@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 
-export default function Watch_page(Title, Price) {
+export default function Watch_page({Title, Price}) {
     const AddImage = () => {
         let source;
     
@@ -35,7 +35,7 @@ export default function Watch_page(Title, Price) {
         <View style={styles.description_container}>
             <View style={styles.row}>
                 <View style={styles.title_subtitle}>
-                    <Text style={styles.title}>Apple Watch Series 7</Text>
+                    <Text style={styles.title}>{Title}</Text>
                     <Text style={styles.subtitle}>(With solo loop)</Text>
                 </View>
                 <Text style={styles.price}>$799</Text>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   Arrow : {
     width : 25,
     height : 25,
-    justifyContent : 'start',
+    justifyContent : 'flex-start',
   },
   Watch_picture : {
     width : 311,
