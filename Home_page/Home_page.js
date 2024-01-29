@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Card from './Card.js';
 
-export default function Home_page(navigation) {
+export default function Home_page({navigation}) {
 
   const CardPress = (Title, Price) => {
     navigation.navigate('WatchPage', {Title, Price});

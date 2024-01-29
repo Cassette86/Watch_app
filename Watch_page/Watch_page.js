@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 
-export default function Watch_page(Title, Price) {
+export default function Watch_page({Title, Price, navigation}) {
     const AddImage = () => {
         let source;
     

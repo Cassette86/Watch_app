@@ -29,7 +29,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{ headerShown: false }}>
-          {(props) => (<Home_page {...props} title="homepage" navigation={props.navigation}/>)}
+          {({ navigation }) => <Home_page navigation={navigation} title="homepage" />}
         </Stack.Screen>
         <Stack.Screen name="WatchPage" component={Watch_page} options={{ headerShown: false }} />
       </Stack.Navigator>
