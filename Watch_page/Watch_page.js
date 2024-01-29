@@ -1,8 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 
-export default function Watch_page({Title, Price, navigation}) {
+export default function Watch_page(Title, Price) {
     const AddImage = () => {
         let source;
     
@@ -18,11 +19,18 @@ export default function Watch_page({Title, Price, navigation}) {
     
         return <Image source={source} />;
       };
+    
+    const navigation = useNavigation();
+    const BackHome = () => {
+      navigation.goBack();
+    };
 
 
   return (
     <View style={styles.container}>
-        <Image source={require('../assets/Pictures/Arrow.png')} style={styles.Arrow} />
+        <TouchableOpacity onPress={BackHome}>
+          <Image source={require('../assets/Pictures/Arrow.png')} style={styles.Arrow} />
+        </TouchableOpacity>
         <Image source={require('../assets/Pictures/Big_apple_watch.png')} style={styles.Watch_picture} />
         <View style={styles.description_container}>
             <View style={styles.row}>
@@ -55,9 +63,7 @@ const styles = StyleSheet.create({
   Arrow : {
     width : 25,
     height : 25,
-    position : 'absolute',
-    top : '10%',
-    left : '10%',
+    justifyContent : 'start',
   },
   Watch_picture : {
     width : 311,
