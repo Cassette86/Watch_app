@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 export default function Watch_page({Title, Price}) {
     const AddImage = () => {
         let source;
+        let imageSize = { width: 311, height: 311 };
     
         if (Title === 'Apple Watch Series 7') {
           source = require('../assets/Pictures/Big_apple_watch.png');
@@ -17,7 +18,7 @@ export default function Watch_page({Title, Price}) {
           source = require('../assets/Pictures/Big_Amazon.png');
         }
     
-        return <Image source={source} />;
+        return <Image source={source} style={[styles.image, imageSize]}/>;
       };
     
     const navigation = useNavigation();
@@ -31,7 +32,9 @@ export default function Watch_page({Title, Price}) {
         <TouchableOpacity onPress={BackHome}>
           <Image source={require('../assets/Pictures/Arrow.png')} style={styles.Arrow} />
         </TouchableOpacity>
-        <Image source={require('../assets/Pictures/Big_apple_watch.png')} style={styles.Watch_picture} />
+        <View style={styles.Watch_picture}>
+            <AddImage />
+        </View>
         <View style={styles.description_container}>
             <View style={styles.row}>
                 <View style={styles.title_subtitle}>
@@ -70,6 +73,7 @@ const styles = StyleSheet.create({
     height : 311,
     justifyContent : 'center',
     alignItems : 'center',
+    resizeMode : 'cover',
   },
   white_background : {
     width : '100%',
