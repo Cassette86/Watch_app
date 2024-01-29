@@ -3,9 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 
-export default function Watch_page(Title, Price) {
+export default function Watch_page({Title, Price}) {
     const AddImage = () => {
         let source;
+        let imageSize = { width: 311, height: 311 };
     
         if (Title === 'Apple Watch Series 7') {
           source = require('../assets/Pictures/Big_apple_watch.png');
@@ -17,7 +18,7 @@ export default function Watch_page(Title, Price) {
           source = require('../assets/Pictures/Big_Amazon.png');
         }
     
-        return <Image source={source} />;
+        return <Image source={source} style={[styles.image, imageSize]}/>;
       };
     
     const navigation = useNavigation();
@@ -31,14 +32,16 @@ export default function Watch_page(Title, Price) {
         <TouchableOpacity onPress={BackHome}>
           <Image source={require('../assets/Pictures/Arrow.png')} style={styles.Arrow} />
         </TouchableOpacity>
-        <Image source={require('../assets/Pictures/Big_apple_watch.png')} style={styles.Watch_picture} />
+        <View style={styles.Watch_picture}>
+            <AddImage />
+        </View>
         <View style={styles.description_container}>
             <View style={styles.row}>
                 <View style={styles.title_subtitle}>
-                    <Text style={styles.title}>Apple Watch Series 7</Text>
+                    <Text style={styles.title}>{Title}</Text>
                     <Text style={styles.subtitle}>(With solo loop)</Text>
                 </View>
-                <Text style={styles.price}>$799</Text>
+                <Text style={styles.price}>{Price}</Text>
             </View>
             <Text style={styles.description}>The aluminium case is lightweight and made from 100 percent recycled aerospace grade alloy.</Text>
             <View style={styles.add_to_card}>
@@ -63,13 +66,14 @@ const styles = StyleSheet.create({
   Arrow : {
     width : 25,
     height : 25,
-    justifyContent : 'start',
+    justifyContent : 'flex-start',
   },
   Watch_picture : {
     width : 311,
     height : 311,
     justifyContent : 'center',
     alignItems : 'center',
+    resizeMode : 'cover',
   },
   white_background : {
     width : '100%',
