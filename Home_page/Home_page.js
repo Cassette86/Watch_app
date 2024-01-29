@@ -6,6 +6,10 @@ import Card from './Card.js';
 
 export default function Home_page() {
 
+  const CardPress = (Title, Price) => {
+    navigation.navigate('WatchPage', {Title, Price});
+  };
+
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Find your suitable watch now.</Text>

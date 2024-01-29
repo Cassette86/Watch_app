@@ -59,8 +59,4 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     fontFamily: 'r_semibold',
   },
-  title: {
-    fontFamily: 'r_semibold',
-    fontSize: 20,
-  },
 });

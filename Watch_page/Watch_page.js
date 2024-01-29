@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export default function Watch_page(Title, Subtitle, Price, Description) {
+export default function Watch_page(Title, Price) {
     const AddImage = () => {
         let source;
     
