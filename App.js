@@ -5,6 +5,9 @@ import { useCallback } from 'react';
 import Home_page from './Home_page/Home_page.js';
 import Watch_page from './Watch_page/Watch_page.js';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,11 +27,27 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <Home_page />
-        <StatusBar style="auto" />
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home_page"
+          options={{
+            headerShown: false,
+          }}
+        >
+          {(props) => (
+            <Home_page {...props} title="homepage" navigation={props.navigation} />
+          )}
+        </Stack.Screen>
+        <Stack.Screen
+          name="WatchPage"
+              options={{ headerShown: false }}>
+            {(props) => (
+            <WatchPage {...props} title={props.route.params.title} price ={props.route.params.price} imageSource={props.route.params.imageSource} />
+          )}
+        </Stack.Screen>
+      </Stack.Navigator>
     </NavigationContainer>
+
   );
 }
 
